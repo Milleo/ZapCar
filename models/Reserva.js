@@ -14,9 +14,9 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Reserva.associate = (models) => {
-        Reserva.belongsToMany(models.Cliente, { as: "cliente", foreignKey: "id" });
-        Reserva.belongsToMany(models.Servico, { as: "servico", foreignKey: "id" });
-        Reserva.belongsToMany(models.Veiculo, { as: "veiculo", foreignKey: "id" });
+        Reserva.hasOne(models.Cliente, { as: "clienteObj", foreignKey: "id" });
+        Reserva.hasOne(models.Servico, { as: "servicoObj", foreignKey: "id" });
+        Reserva.hasOne(models.Veiculo, { as: "veiculoObj", foreignKey: "id" });
     }
 
     return Reserva;

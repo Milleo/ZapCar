@@ -8,9 +8,5 @@ module.exports = (sequelize, DataTypes) => {
         paranoid: true
     });
 
-    Centro.associate = (models) => {
-        Centro.belongsToMany(models.Veiculo, { as: "veiculo", foreignKey: "id" });
-    }  
-
     return Centro;
 }

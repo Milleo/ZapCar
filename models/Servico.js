@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const Reserva = sequelize.define("Servico",{
+    const Servico = sequelize.define("Servico",{
         nome: DataTypes.STRING(75),
         valor: DataTypes.DOUBLE,
         descricao: DataTypes.TEXT
@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Servico.associate = (models) => {
-        Servico.belongsToMany(models.Reserva, { as: "reserva", foreignKey: "id" });
+        Servico.hasOne(models.Reserva, { as: "reserva", foreignKey: "id" });
     }  
 
     return Servico;

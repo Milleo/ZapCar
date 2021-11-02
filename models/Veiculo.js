@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Veiculo.associate = (models) => {
-        Veiculo.hasOne(models.Modelo, { as: "modelo", foreignKey: "id" });
-        Veiculo.hasOne(models.Centro, { as: "centro", foreignKey: "id" });
+        Veiculo.hasOne(models.Modelo, { as: "modeloObj", foreignKey: "id" });
+        Veiculo.hasOne(models.Centro, { as: "centroObj", foreignKey: "id" });
     }
 
     return Veiculo;

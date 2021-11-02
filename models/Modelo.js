@@ -1,6 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
     const Modelo = sequelize.define('Modelo', {
-        id: DataTypes.INTEGER.UNSIGNED,
         nome: DataTypes.STRING(75),
         marca: DataTypes.INTEGER.UNSIGNED 
     },{
@@ -10,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     })
 
     Modelo.associate = (models) => {
-        Modelo.hasOne(models.Marca, { as: "marca", foreignKey: "id" })
+        Modelo.hasOne(models.Marca, { as: "marcaObj", foreignKey: "id" })
     };
 
     return Modelo;
