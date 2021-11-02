@@ -1,0 +1,26 @@
+<%- include("../partials/header") %>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"></div>
+    <h1 class="h2">Usuários</h1>
+</div>
+
+<form action="<%= formAction %>" method="POST">
+    <div class="mb-3">
+      <label class="form-label">Nome</label>
+      <input value="<%= usuario.nome %>" name="nome" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">E-mail</label>
+        <input value="<%= usuario.email %>" name="email" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Senha</label>
+        <input value="<%= usuario.senha %>" name="senha" type="text" class="form-control">
+    </div>
+    <div class="mb-3 form-check">
+        <label>Ativo</label>
+        <input <%= (usuario.ativo)?"checked='checked'":'' %> type="checkbox" class="form-check-input" name="ativo">
+        
+    </div>
+    <button type="submit" class="btn btn-primary"><%= buttonMessage %></button>
+  </form>
+<%- include("../partials/footer") %>

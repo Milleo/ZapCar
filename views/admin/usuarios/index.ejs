@@ -1,0 +1,38 @@
+<%- include("../partials/header") %>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"></div>
+    <h1 class="h2">Usuários</h1>
+    <a class="btn btn-primary" href="/admin/usuarios/cadastrar">Cadastrar</a>
+</div>
+
+<div class="table-responsive">
+<table class="table table-striped table-sm">
+    <thead>
+    <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Ativo</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+        <% if(usuarios.length == 0){ %>
+        <tr>
+            <td colspan="4"><em>Nenhum usuário cadastrado</em></td>
+        </tr>
+        <% }else{ %>
+            <% for(let i = 0; i < usuarios.length; i++){ %>
+            <tr>
+                <td><%= usuarios[i].nome %></td>
+                <td><%= usuarios[i].email %></td>
+                <td><%= (usuarios[i].ativo)?"Sim":"Não" %></td>
+                <td>
+                    <a class="btn btn-outline" href="/admin/usuarios/alterar/<%= usuarios[i].id %>">Editar</a>
+                    <a class="btn btn-outline" href="/admin/usuarios/excluir/<%= usuarios[i].id %>">Excluir</a>
+                </td>
+            </tr>
+        <% } %>
+    <% } %>
+    </tbody>
+</table>
+</div>
+<%- include("../partials/footer") %>

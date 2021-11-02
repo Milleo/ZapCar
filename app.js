@@ -3,9 +3,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var AdminAuthMiddleware = require("./middlewares/AdminAuthMiddleware");
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var adminRouter = require('./routes/admin/index');
 
 var app = express();
 
@@ -20,7 +21,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/admin/login', function(req, res, next) { res.render('admin/login') });
+app.use('/admin', AdminAuthMiddleware, adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
