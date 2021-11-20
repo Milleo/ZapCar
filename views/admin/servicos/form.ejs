@@ -1,0 +1,21 @@
+<%- include("../partials/header") %>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"></div>
+    <h1 class="h2">Serviços</h1>
+</div>
+
+<form action="<%= formAction %>" method="POST">
+    <div class="mb-3">
+      <label class="form-label">Nome</label>
+      <input value="<%= servico.nome %>" name="nome" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Descrição</label>
+        <input value="<%= servico.descricao %>" name="descricao" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Valor</label>
+        <input value="<%= servico.valor %>" name="valor" type="text" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary"><%= buttonMessage %></button>
+  </form>
+<%- include("../partials/footer") %>

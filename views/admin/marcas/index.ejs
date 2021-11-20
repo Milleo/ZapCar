@@ -1,0 +1,35 @@
+<%- include("../partials/header") %>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"></div>
+    <h1 class="h2">Marcas</h1>
+    <a class="btn btn-primary" href="/admin/marcas/cadastrar">Cadastrar</a>
+</div>
+
+<div class="table-responsive">
+<table class="table table-striped table-sm">
+    <thead>
+    <tr>
+        <th scope="col">Nome</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+        <% if(marcas.length == 0){ %>
+        <tr>
+            <td colspan="4"><em>Nenhuma marca cadastrada</em></td>
+        </tr>
+        <% }else{ %>
+            <% for(let i = 0; i < marcas.length; i++){ %>
+            <tr>
+                <td><%= marcas[i].nome %></td>
+                <td></td>
+                <td>
+                    <a class="btn btn-outline" href="/admin/marcas/alterar/<%= marcas[i].id %>">Editar</a>
+                    <a class="btn btn-outline" href="/admin/marcas/excluir/<%= marcas[i].id %>">Excluir</a>
+                </td>
+            </tr>
+        <% } %>
+    <% } %>
+    </tbody>
+</table>
+</div>
+<%- include("../partials/footer") %>

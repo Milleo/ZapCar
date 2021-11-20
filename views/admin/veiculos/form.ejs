@@ -1,0 +1,29 @@
+<%- include("../partials/header") %>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"></div>
+    <h1 class="h2">Veiculos</h1>
+</div>
+
+<form action="<%= formAction %>" method="POST">
+    <div class="mb-3">
+      <label class="form-label">Ano</label>
+      <input value="<%= veliculo.ano %>" name="ano" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Cor</label>
+        <input value="<%= veliculo.cor %>" name="cor" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Placa</label>
+        <input value="<%= veliculo.placa %>" name="placa" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Modelo</label>
+        <input value="<%= veliculo.modelo.nome %>" name="placa" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Loja</label>
+        <input value="<%= veliculo.loja.nome %>" name="placa" type="text" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary"><%= buttonMessage %></button>
+  </form>
+<%- include("../partials/footer") %>

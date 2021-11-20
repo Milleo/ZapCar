@@ -1,0 +1,30 @@
+<%- include("../partials/header") %>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"></div>
+    <h1 class="h2">Usuários</h1>
+</div>
+
+<form action="<%= formAction %>" method="POST">
+    <div class="mb-3">
+      <label class="form-label">Nome</label>
+      <input value="<%= cliente.nome %>" name="nome" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">E-mail</label>
+        <input value="<%= cliente.email %>" name="email" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">CPF</label>
+        <input value="<%= cliente.email %>" name="email" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Data de nascimento</label>
+        <input value="<%= cliente.email %>" name="email" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Celular</label>
+        <input value="<%= cliente.email %>" name="email" type="text" class="form-control">
+    </div>
+    <%- include("../partials/endereco_form", { endereco: cliente.endereco }) %>
+    <button type="submit" class="btn btn-primary"><%= buttonMessage %></button>
+  </form>
+<%- include("../partials/footer") %>

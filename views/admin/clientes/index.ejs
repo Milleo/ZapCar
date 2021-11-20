@@ -1,0 +1,48 @@
+<%- include("../partials/header") %>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"></div>
+    <h1 class="h2">Clientes</h1>
+    <a class="btn btn-primary" href="/admin/clientes/cadastrar">Cadastrar</a>
+</div>
+
+<div class="table-responsive">
+<table class="table table-striped table-sm">
+    <thead>
+    <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">CPF</th>
+        <th scope="col">Data de nascimento</th>
+        <th scope="col">Celular</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Cidade</th>
+        <th scope="col">Ativo</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+        <% if(clientes.length == 0){ %>
+        <tr>
+            <td colspan="4"><em>Nenhum cliente cadastrado</em></td>
+        </tr>
+        <% }else{ %>
+            <% for(let i = 0; i < clientes.length; i++){ %>
+            <tr>
+                <td><%= clientes[i].nome %></td>
+                <td><%= clientes[i].email %></td>
+                <td><%= clientes[i].cpf %></td>
+                <td><%= clientes[i].data_nascimento %></td>
+                <td><%= clientes[i].celular %></td>
+                <td><%= clientes[i].endereco.estado %></td>
+                <td><%= clientes[i].endereco.cidade %></td>
+                <td><%= (clientes[i].ativo)?"Sim":"Não" %></td>
+                <td>
+                    <a class="btn btn-outline" href="/admin/clientes/alterar/<%= clientes[i].id %>">Editar</a>
+                    <a class="btn btn-outline" href="/admin/clientes/desativar/<%= clientes[i].id %>">Desativar</a>
+                </td>
+            </tr>
+        <% } %>
+    <% } %>
+    </tbody>
+</table>
+</div>
+<%- include("../partials/footer") %>

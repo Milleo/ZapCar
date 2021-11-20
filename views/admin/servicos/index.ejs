@@ -1,0 +1,38 @@
+<%- include("../partials/header") %>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"></div>
+    <h1 class="h2">Serviços</h1>
+    <a class="btn btn-primary" href="/admin/servicos/cadastrar">Cadastrar</a>
+</div>
+
+<div class="table-responsive">
+<table class="table table-striped table-sm">
+    <thead>
+    <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Valor</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+        <% if(servicos.length == 0){ %>
+        <tr>
+            <td colspan="4"><em>Nenhum serviço cadastrado</em></td>
+        </tr>
+        <% }else{ %>
+            <% for(let i = 0; i < servicos.length; i++){ %>
+            <tr>
+                <td><%= servicos[i].nome %></td>
+                <td><%= servicos[i].descricao %></td>
+                <td><%= servicos[i].valor %></td>
+                <td>
+                    <a class="btn btn-outline" href="/admin/servicos/alterar/<%= servicos[i].id %>">Editar</a>
+                    <a class="btn btn-outline" href="/admin/servicos/excluir/<%= servicos[i].id %>">Excluir</a>
+                </td>
+            </tr>
+        <% } %>
+    <% } %>
+    </tbody>
+</table>
+</div>
+<%- include("../partials/footer") %>
