@@ -12,7 +12,10 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Cliente.associate = (models) => {
-        Cliente.hasOne(models.Endereco, { as: "enderecoObj", foreignKey: "id" });
+        Cliente.hasOne(models.Endereco, {
+            as: "enderecoCliente",
+            foreignKey: "endereco"
+        });
     }
 
     return Cliente;

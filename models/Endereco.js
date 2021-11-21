@@ -15,5 +15,9 @@ module.exports = (sequelize, DataTypes) => {
         paranoid: true
     });
 
+    Endereco.associate = (models) => {
+        Endereco.hasOne(models.Centro, { foreignKey: "id" });
+    }
+
     return Endereco;
 }

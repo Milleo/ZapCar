@@ -4,11 +4,19 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var AdminAuthMiddleware = require("./middlewares/AdminAuthMiddleware");
+var session = require("express-session");
 
 var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin/index');
+var loginRouter = require("./routes/admin/LoginRouter");
 
 var app = express();
+app.use(session({
+  secret: "ZapCarDevelopmentEnvironment",
+  cookie: {
+    maxAge: 4 * 60 * 1000
+  }
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,7 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/admin/login', function(req, res, next) { res.render('admin/login') });
+app.use('/admin', loginRouter);
 app.use('/admin', AdminAuthMiddleware, adminRouter);
 
 // catch 404 and forward to error handler

@@ -9,7 +9,10 @@ module.exports = (sequelize, DataTypes) => {
     })
 
     Modelo.associate = (models) => {
-        Modelo.hasOne(models.Marca, { as: "marcaObj", foreignKey: "id" })
+        Modelo.belongsTo(models.Marca, {
+            as: "marcaObj",
+            foreignKey: "marca"
+        })
     };
 
     return Modelo;
