@@ -1,28 +1,53 @@
 <div class="mb-3">
     <label class="form-label">CEP</label>
-    <input value="<%= endereco.cep %>" name="cep" type="text" class="form-control">
+    <input id="cep" maxlength="9" name="cep" type="text" class="form-control">
 </div>
 <div class="mb-3">
     <label class="form-label">Logradouro</label>
-    <input value="<%= endereco.logradouro %>" name="logradouro" type="text" class="form-control">
+    <input id="logradouro" name="logradouro" type="text" class="form-control">
 </div>
 <div class="mb-3">
     <label class="form-label">Número</label>
-    <input value="<%= endereco.numero %>" name="numero" type="text" class="form-control">
+    <input name="numero" type="text" class="form-control">
 </div>
 <div class="mb-3">
     <label class="form-label">Complemento</label>
-    <input value="<%= endereco.complemento %>" name="complemento" type="text" class="form-control">
+    <input name="complemento" type="text" class="form-control">
 </div>
 <div class="mb-3">
     <label class="form-label">Bairro</label>
-    <input value="<%= endereco.bairro %>" name="bairro" type="text" class="form-control">
+    <input id="bairro" name="bairro" type="text" class="form-control">
 </div>
 <div class="mb-3">
     <label class="form-label">Cidade</label>
-    <input value="<%= endereco.cidade %>" name="cidade" type="text" class="form-control">
+    <input id="cidade" name="cidade" type="text" class="form-control">
 </div>
 <div class="mb-3">
     <label class="form-label">Estado</label>
-    <input value="<%= endereco.estado %>" name="estado" type="text" class="form-control">
+    <input id="estado" name="estado" type="text" class="form-control">
 </div>
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $("#cep").on("blur", function(){
+        var valorCep = $(this).val();
+        $.ajax({
+            type: "GET",
+            url: "http://viacep.com.br/ws/" + valorCep + "/json/",
+            beforeSend: function(){
+                $("#logradouro, #bairro, #cidade, #estado").attr("disabled", "disabled");
+            },
+            complete: function(){
+                $("#logradouro, #bairro, #cidade, #estado").removeAttr("disabled");
+            },
+            success: function(data){
+                $("#logradouro").val(data.logradouro);
+                $("#bairro").val(data.bairro);
+                $("#cidade").val(data.localidade);
+                $("#estado").val(data.uf);
+            }
+        })
+    })
+});
+
+</script>

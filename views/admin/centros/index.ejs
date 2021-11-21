@@ -14,18 +14,19 @@
     </tr>
     </thead>
     <tbody>
-        <% if(lojas.length == 0){ %>
+        <% if(centros.length == 0){ %>
         <tr>
             <td colspan="4"><em>Nenhuma loja cadastrado</em></td>
         </tr>
         <% }else{ %>
-            <% for(let i = 0; i < lojas.length; i++){ %>
+            <% for(let i = 0; i < centros.length; i++){ %>
             <tr>
-                <td><%= lojas[i].nome %></td>
-                <td></td>
+                <td><%= centros[i].nome %></td>
+                <td><%= centros[i].endereco.logradouro %>, <%= centros[i].endereco.numero %><br />
+                    <%= centros[i].endereco.bairro %>, <%= centros[i].endereco.cidade %> - <%= centros[i].endereco.estado %></td>
                 <td>
-                    <a class="btn btn-outline" href="/admin/lojas/alterar/<%= lojas[i].id %>">Editar</a>
-                    <a class="btn btn-outline" href="/admin/lojas/excluir/<%= lojas[i].id %>">Excluir</a>
+                    <a class="btn btn-outline" href="/admin/lojas/alterar/<%= centros[i].id %>">Editar</a>
+                    <a class="btn btn-outline" href="/admin/lojas/excluir/<%= centros[i].id %>">Excluir</a>
                 </td>
             </tr>
         <% } %>

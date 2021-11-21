@@ -8,7 +8,7 @@
       <label class="form-label">Nome</label>
       <input value="<%= centro.nome %>" name="nome" type="text" class="form-control">
     </div>
-    <%- include("../partials/endereco_form", { endereco: centro.endereco }) %>
+    <%- include("../partials/enderecos_form", { endereco: centro.endereco }) %>
     <button type="submit" class="btn btn-primary"><%= buttonMessage %></button>
   </form>
 <%- include("../partials/footer") %>
