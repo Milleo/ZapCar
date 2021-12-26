@@ -8,8 +8,8 @@ module.exports = {
         longitude: Sequelize.DataTypes.GEOMETRY('POINT'),
         latitude: Sequelize.DataTypes.GEOMETRY('POINT'),
         imagem: { type: Sequelize.DataTypes.STRING },
-        modelo: { type: Sequelize.DataTypes.INTEGER.UNSIGNED, references: { model: 'modelos', key: 'id' } },
-        centro: { type: Sequelize.DataTypes.INTEGER.UNSIGNED, references: { model: 'centros', key: 'id' } },
+        modelo_id: { type: Sequelize.DataTypes.INTEGER.UNSIGNED, references: { model: 'modelos', key: 'id' }, allowNull: false },
+        centro_id: { type: Sequelize.DataTypes.INTEGER.UNSIGNED, references: { model: 'centros', key: 'id' }, allowNull: false },
         createdAt: Sequelize.DataTypes.DATE,
         updatedAt: Sequelize.DataTypes.DATE,
         deletedAt: Sequelize.DataTypes.DATE

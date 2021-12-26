@@ -9,10 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Centro.associate = (models) => {
-        Centro.belongsTo(models.Endereco,{
-            as: "endereco",
-            foreignKey: "endereco_id"
-        })
+        Centro.belongsTo(models.Endereco, { as: "endereco", foreignKey: "endereco_id" });
     }
 
     return Centro;

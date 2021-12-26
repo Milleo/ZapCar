@@ -2,8 +2,7 @@ const db = require("../models");
 
 const CentrosController = {
     listar: async (req, res) => {
-        const centros = await db.Centro.findAll();
-        console.log("ENDERECO", centros);
+        const centros = await db.Centro.findAll({ include: "endereco" });
         res.render("admin/centros/index", { centros: centros });
     },
     cadastrar: (req, res) => {

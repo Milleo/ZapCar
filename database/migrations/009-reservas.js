@@ -6,9 +6,9 @@ module.exports = {
         retornoPrevisto: { type: Sequelize.DataTypes.DATE },
         retorno: { type: Sequelize.DataTypes.DATE },
         valorTotal: { type: Sequelize.DataTypes.DOUBLE, allowNull: false },
-        cliente: { type: Sequelize.DataTypes.INTEGER.UNSIGNED, references: { model: 'clientes', key: 'id' } },
-        veiculo: { type: Sequelize.DataTypes.INTEGER.UNSIGNED, references: { model: 'veiculos', key: 'id' } },
-        servico: { type: Sequelize.DataTypes.INTEGER.UNSIGNED, references: { model: 'servicos', key: 'id' } },
+        cliente_id: { type: Sequelize.DataTypes.INTEGER.UNSIGNED, references: { model: 'clientes', key: 'id' } },
+        veiculo_id: { type: Sequelize.DataTypes.INTEGER.UNSIGNED, references: { model: 'veiculos', key: 'id' } },
+        servico_id: { type: Sequelize.DataTypes.INTEGER.UNSIGNED, references: { model: 'servicos', key: 'id' }, allowNull: false },
         createdAt: Sequelize.DataTypes.DATE,
         updatedAt: Sequelize.DataTypes.DATE,
         deletedAt: Sequelize.DataTypes.DATE

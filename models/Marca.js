@@ -7,12 +7,5 @@ module.exports = (sequelize, DataTypes) => {
         paranoid: true
     });
 
-    Marca.associate = (models) => {
-        Marca.hasMany(models.Modelo, {
-            as: "modelos",
-            foreignKey: "id"
-        })
-    }
-
     return Marca;
 }

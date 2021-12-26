@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
         email: DataTypes.STRING(75),
         senha: DataTypes.STRING,
         cpf: DataTypes.STRING(15),
-        endereco: DataTypes.INTEGER.UNSIGNED,
+        endereco_id: DataTypes.INTEGER.UNSIGNED,
     }, {
         tableName: 'clientes',
         timestamps: true,
@@ -12,9 +12,12 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Cliente.associate = (models) => {
-        Cliente.hasOne(models.Endereco, {
-            as: "enderecoCliente",
-            foreignKey: "endereco"
+        Cliente.belongsTo(models.Endereco, { as: "endereco", foreignKey: "endereco_id" });
+        Cliente.belongsToMany(models.Veiculo, {
+            as: "veiculos",
+            foreignKey: "cliente_id",
+            otherKey: "veiculo_id",
+            through: "reservas"
         });
     }
 

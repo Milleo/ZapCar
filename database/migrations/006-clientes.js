@@ -6,7 +6,7 @@ module.exports = {
         email: { type: Sequelize.DataTypes.STRING(75), allowNull: false },
         senha: { type: Sequelize.DataTypes.STRING, allowNull: false },
         cpf: { type: Sequelize.DataTypes.STRING(15), allowNull: false, default: false },
-        endereco: { type: Sequelize.DataTypes.INTEGER.UNSIGNED, references: { model: 'enderecos', key: 'id' } },
+        endereco_id: { type: Sequelize.DataTypes.INTEGER.UNSIGNED, references: { model: 'enderecos', key: 'id' }, allowNull: false },
         createdAt: Sequelize.DataTypes.DATE,
         updatedAt: Sequelize.DataTypes.DATE,
         deletedAt: Sequelize.DataTypes.DATE
