@@ -6,21 +6,22 @@ var logger = require('morgan');
 var AdminAuthMiddleware = require("./middlewares/AdminAuthMiddleware");
 var session = require("express-session");
 var SessionStore = require('express-session-sequelize')(session.Store);
-var db = require("./models")
+var db = require("./models");
+var flash = require('connect-flash');
 
 var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin/index');
 var loginRouter = require("./routes/admin/LoginRouter");
 
-var sequelizeSessionStore = new SessionStore({
-  db: db.sequelize,
-});
+var sequelizeSessionStore = new SessionStore({ db: db.sequelize });
 
 var app = express();
 app.use(session({
   secret: "ZapCarDevelopmentEnvironment",
   store: sequelizeSessionStore
 }));
+
+app.use(flash());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
