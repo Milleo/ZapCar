@@ -9,11 +9,16 @@
     <link href="/dashboard.css" rel="stylesheet" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>  
-    <title>Car Rental - Painel administrativo</title>
+    <title>
+      <% if(typeof title != "undefined"){ %>
+        <%= title %> - 
+      <% } %>
+      Painel administrativo - ZapCar
+    </title>
 </head>
 <body>
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Car Rental</a>
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">ZapCar</a>
       <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -32,6 +37,7 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/admin">Início</a>
               </li>
+              <li class="nav-item"><a class="nav-link" href="/admin/imagensSlider">Imagens do Slider</a></li>
               <li class="nav-item"><a class="nav-link" href="/admin/lojas">Lojas</a></li>
               <li class="nav-item"><a class="nav-link" href="/admin/servicos">Serviços</a></li>
               <li class="nav-item"><a class="nav-link" href="/admin/clientes">Clientes</a></li>
@@ -44,5 +50,8 @@
           </div>
         </nav>
     
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 pt-4">
+          <% if(typeof title != "undefined"){ %>
+            <h1 class="h2 pb-2 mb-4 border-bottom"><%= title %></h1>
+          <% } %>
+          

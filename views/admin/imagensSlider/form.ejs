@@ -1,0 +1,23 @@
+<%- include("../partials/header") %>
+<form action="/admin/imagensSlider/adicionar" method="POST" enctype="multipart/form-data">
+  <div class="row">
+    <div class="col-md-6">
+      <label class="form-label">Título</label>
+      <input value="" name="titulo" type="text" class="form-control">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Arquivo da imagem</label>
+      <input value="" name="arquivoImagem" type="file" class="form-control">
+    </div>
+    <div class="col-md-12">
+      <label class="form-label">Texto</label>
+      <textarea name="texto" class="form-control"></textarea>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-sm-1">
+      <button type="submit" class="btn btn-primary">Adicionar</button>
+    </div>
+  </div>
+  </form>
+<%- include("../partials/footer") %>

@@ -4,13 +4,14 @@ const bcrypt = require("bcrypt");
 const UsuariosController = {
     listar: async (req, res) => {
         const usuarios = await db.Usuario.findAll();
-        res.render("admin/usuarios/index", { usuarios: usuarios });
+        res.render("admin/usuarios/index", { usuarios: usuarios, title: "Usuários" });
     },
     cadastrar: (req, res) => {
         res.render("admin/usuarios/form", {
             formAction: "/admin/usuarios/cadastrar",
             buttonMessage: "Cadastrar",
-            usuario: {}
+            usuario: {},
+            title: "Usuários"
         });
     },
     acaoCadastrar: async (req, res) => {

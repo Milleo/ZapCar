@@ -5,17 +5,21 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var AdminAuthMiddleware = require("./middlewares/AdminAuthMiddleware");
 var session = require("express-session");
+var SessionStore = require('express-session-sequelize')(session.Store);
+var db = require("./models")
 
 var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin/index');
 var loginRouter = require("./routes/admin/LoginRouter");
 
+var sequelizeSessionStore = new SessionStore({
+  db: db.sequelize,
+});
+
 var app = express();
 app.use(session({
   secret: "ZapCarDevelopmentEnvironment",
-  cookie: {
-    maxAge: 4 * 60 * 1000
-  }
+  store: sequelizeSessionStore
 }));
 
 // view engine setup

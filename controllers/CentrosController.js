@@ -3,13 +3,16 @@ const db = require("../models");
 const CentrosController = {
     listar: async (req, res) => {
         const centros = await db.Centro.findAll({ include: "endereco" });
-        res.render("admin/centros/index", { centros: centros });
+        res.render("admin/centros/index", { centros: centros, title: "Lojas" });
     },
     cadastrar: (req, res) => {
         res.render("admin/centros/form", {
             formAction: "/admin/lojas/cadastrar",
             buttonMessage: "Cadastrar",
-            centro: {}
+            title: "Lojas",
+            centro: {
+                endereco: {}
+            }
         });
     },
     acaoCadastrar: async (req, res) => {
@@ -31,13 +34,12 @@ const CentrosController = {
         res.redirect("/admin/lojas");
     },
     alterar: async (req, res) => {
-        const centro = await db.Centro.findByPk(req.params.id);
-
-        console.log(centro);
+        const centro = await db.Centro.findByPk(req.params.id, { include: [ "endereco" ] });
 
         res.render("admin/centros/form", {
             formAction: `/admin/lojas/alterar/${req.params.id}`,
             buttonMessage: "Atualizar",
+            title: "Lojas",
             centro: centro
         });
     },

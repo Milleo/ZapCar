@@ -1,0 +1,34 @@
+<%- include("../partials/header") %>
+<a class="btn btn-primary" href="/admin/imagensSlider/adicionar">Adicionar</a>
+
+<div class="table-responsive mt-3">
+<table class="table table-striped table-sm">
+    <thead>
+    <tr>
+        <th scope="col">Imagem</th>
+        <th scope="col">Titulo</th>
+        <th scope="col">Texto</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+        <% if(imagens.length == 0){ %>
+        <tr>
+            <td colspan="4"><em>Nenhuma imagem cadastrada</em></td>
+        </tr>
+        <% }else{ %>
+            <% for(let i = 0; i < imagens.length; i++){ %>
+            <tr>
+                <td><img height="150" src="/images/slider/<%= imagens[i].imagem %>" alt="" /></td>
+                <td><%= imagens[i].titulo %></td>
+                <td><%= imagens[i].texto %></td>
+                <td>
+                    <a class="btn btn-outline" href="/admin/imagensSlider/excluir/<%= imagens[i].id %>">Excluir</a>
+                </td>
+            </tr>
+        <% } %>
+    <% } %>
+    </tbody>
+</table>
+</div>
+<%- include("../partials/footer") %>

@@ -24,7 +24,7 @@ const AuthController = {
         res.redirect("/admin/");
     },
     logout: (req, res) => {
-        //req.session.destroy();
+        req.session.destroy();
         res.redirect("/admin/login");
     }
 }
