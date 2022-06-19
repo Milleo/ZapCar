@@ -2,13 +2,12 @@ const express = require('express');
 const router = express.Router();
 const AdminController = require("../../controllers/AdminController");
 const multer = require('multer');
-const path = require("path");
 
 const upload = multer({
     limits: {
       fileSize: 4 * 1024 * 1024,
     },
-    dest: "public/images/slider"
+    dest: "public/uploads/slider"
 });
 
 router.get('/', AdminController.imagensSlider);

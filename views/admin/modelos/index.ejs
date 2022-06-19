@@ -5,6 +5,7 @@
 <table class="table table-striped table-sm">
     <thead>
     <tr>
+        <th scope="col">Imagem</th>
         <th scope="col">Nome</th>
         <th scope="col">Marca</th>
         <th scope="col"></th>
@@ -18,6 +19,7 @@
         <% }else{ %>
             <% for(let i = 0; i < modelos.length; i++){ %>
             <tr>
+                <td><img src="/uploads/imagens/modelos/<%= modelos[i].imagem %>" alt="" width="120" /></td>
                 <td><%= modelos[i].nome %></td>
                 <td><%= modelos[i].marca.nome %></td>
                 <td>

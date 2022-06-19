@@ -3,9 +3,7 @@ module.exports = (sequelize, DataTypes) => {
         ano: DataTypes.STRING(4),
         cor: DataTypes.STRING(20),
         placa: DataTypes.STRING(7),
-        longitude: DataTypes.GEOMETRY('POINT'),
-        latitude: DataTypes.GEOMETRY('POINT'),
-        imagem: DataTypes.STRING,
+        localizacao: DataTypes.GEOMETRY('POINT'),
         modelo_id: DataTypes.INTEGER.UNSIGNED,
         centro_id: DataTypes.INTEGER.UNSIGNED
     }, {

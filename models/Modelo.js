@@ -1,6 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
     const Modelo = sequelize.define('Modelo', {
         nome: DataTypes.STRING(75),
+        imagem: DataTypes.STRING,
         marca_id: DataTypes.INTEGER.UNSIGNED 
     },{
         tableName: 'modelos',
